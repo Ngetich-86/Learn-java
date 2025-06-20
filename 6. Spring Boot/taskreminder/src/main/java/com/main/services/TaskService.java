@@ -12,6 +12,7 @@ import com.main.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.cache.annotation.Cacheable;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -60,7 +61,9 @@ public class TaskService {
     }
     
     // Get task by ID
+    @Cacheable(value = "tasks", key = "#id")
     public Optional<TaskResponse> getTaskById(Long id) {
+        System.out.println("Fetching from DB for id: " + id);
         Optional<Task> task = taskRepository.findById(id);
         return task.map(TaskResponse::new);
     }

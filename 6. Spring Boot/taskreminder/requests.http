@@ -1,0 +1,79 @@
+### Create a new task
+POST http://localhost:8082/api/tasks
+Content-Type: application/json
+
+{
+  "title": "Complete project documentation",
+  "description": "Write comprehensive documentation for the Spring Boot project",
+  "dueDate": "2024-01-15T14:30:00",
+  "priority": "HIGH",
+  "userId": 1,
+  "categoryId": 2
+}
+
+### Get all tasks
+GET http://localhost:8082/api/tasks
+
+### Get task by ID
+GET http://localhost:8082/api/tasks/3
+
+### Update task
+PUT http://localhost:8082/api/tasks/1
+Content-Type: application/json
+
+{
+  "title": "Updated task title",
+  "description": "Updated description",
+  "dueDate": "2024-01-20T18:00:00",
+  "priority": "MEDIUM",
+  "userId": 1,
+  "categoryId": 2
+}
+
+### Delete task
+DELETE http://localhost:8082/api/tasks/1
+
+### Mark task as completed
+PATCH http://localhost:8082/api/tasks/1/complete
+
+### Mark task as incomplete
+PATCH http://localhost:8082/api/tasks/1/incomplete
+
+### Get tasks by user
+GET http://localhost:8082/api/tasks/user/1
+
+### Get tasks by user and completion status
+GET http://localhost:8082/api/tasks/user/1/status/true
+
+### Get tasks by priority
+GET http://localhost:8082/api/tasks/priority/HIGH
+
+### Get tasks by user and priority
+GET http://localhost:8082/api/tasks/user/1/priority/HIGH
+
+### Search tasks by title
+GET http://localhost:8082/api/tasks/search?title=project
+
+### Search tasks by title and user
+GET http://localhost:8082/api/tasks/search/user/1?title=project
+
+### Get overdue tasks
+GET http://localhost:8082/api/tasks/overdue
+
+### Get overdue tasks by user
+GET http://localhost:8082/api/tasks/overdue/user/1
+
+### Get tasks due soon
+GET http://localhost:8082/api/tasks/due-soon
+
+### Get tasks due soon by user
+GET http://localhost:8082/api/tasks/due-soon/user/1
+
+### Get task statistics for a user
+GET http://localhost:8082/api/tasks/statistics/user/1
+
+### Get task statistics summary
+GET http://localhost:8082/api/tasks/statistics/summary
+
+### Health check
+GET http://localhost:8082/api/tasks/health
