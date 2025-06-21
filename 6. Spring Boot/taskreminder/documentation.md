@@ -208,6 +208,75 @@ server.port=8081
 - Ensure SSL mode is set to `require`
 - Verify network connectivity
 
+## Authentication and Authorization
+
+### Overview
+The application uses JSON Web Tokens (JWT) for securing endpoints. The authentication flow includes user registration, login, and password reset functionality.
+
+### Endpoints
+
+#### User Registration
+- **Endpoint**: `POST /api/auth/register`
+- **Description**: Registers a new user.
+- **Request Body**:
+  ```json
+  {
+    "username": "testuser",
+    "email": "test@example.com",
+    "password": "password123",
+    "firstName": "Test",
+    "lastName": "User"
+  }
+  ```
+- **Response**: `User registered!`
+
+#### User Login
+- **Endpoint**: `POST /api/auth/login`
+- **Description**: Authenticates a user and returns a JWT.
+- **Request Body**:
+  ```json
+  {
+    "email": "test@example.com",
+    "password": "password123"
+  }
+  ```
+- **Response**:
+  ```json
+  {
+    "token": "ey..."
+  }
+  ```
+
+#### Forgot Password
+- **Endpoint**: `POST /api/auth/forgot-password`
+- **Description**: Initiates the password reset process and returns a reset token. In a real-world scenario, this token would be sent to the user's email.
+- **Request Body**:
+  ```json
+  {
+    "email": "test@example.com"
+  }
+  ```
+- **Response**: `Password reset token: <token>`
+
+#### Reset Password
+- **Endpoint**: `POST /api/auth/reset-password`
+- **Description**: Resets the user's password using a valid token.
+- **Request Body**:
+  ```json
+  {
+    "token": "<reset_token>",
+    "newPassword": "newPassword456"
+  }
+  ```
+- **Response**: `Password reset successfully!`
+
+### Security Configuration
+Spring Security is configured in `SecurityConfig.java` to protect endpoints. The `/api/auth/**` endpoints are publicly accessible, while all other endpoints require authentication.
+
+### JWT Token Handling
+- **`JwtService`**: Handles JWT generation and validation.
+- **`JwtAuthFilter`**: A filter that intercepts incoming requests, validates the JWT from the `Authorization` header, and sets the user's authentication context.
+
 ## Best Practices
 
 ### 1. Migration Best Practices
