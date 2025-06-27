@@ -1,3 +1,5 @@
+package com.main.controllers;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -37,13 +39,13 @@ public class AuthController {
         );
         UserDetails user = userService.loadUserByUsername(request.getEmail());
         String jwtToken = jwtService.generateToken(user);
-        return ResponseEntity.ok(new AuthResponse(jwtToken));
+        return ResponseEntity.ok(AuthResponse.builder().token(jwtToken).build());
     }
 
     @PostMapping("/forgot-password")
     public ResponseEntity<AuthResponse> forgotPassword(@RequestBody ForgotPasswordRequest request) {
         String token = userService.forgotPassword(request);
-        return ResponseEntity.ok(new AuthResponse(token));
+        return ResponseEntity.ok(AuthResponse.builder().token(token).build());
     }
 
     @PostMapping("/reset-password")
