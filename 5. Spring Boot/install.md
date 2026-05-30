@@ -15,8 +15,7 @@ To create a Spring Boot project in Visual Studio Code (VS Code), you need to ins
 ## Create a New Spring Boot Project
 Once the extensions are installed, you can create a new Spring Boot project using the Spring Initializr
 integration in VS Code. Follow these steps:
-1. **Open Command Palette**: Press `Ctrl+Shift+P` (Windows/Linux
-or `Cmd+Shift+P` on Mac).
+1. **Open Command Palette**: Press `Ctrl+Shift+P` (Windows/Linux or `Cmd+Shift+P` on Mac).
 2. **Type "Spring Initializr"**: In the Command Palette, type `Spring Initializr` and select `Spring Initializr: Create a Maven Project` (or `Create a Gradle Project` if you prefer Gradle).
 3. **Configure Project Settings**:
    - **Spring Boot Version**: Select the latest stable version (e.g., 3.2.x).

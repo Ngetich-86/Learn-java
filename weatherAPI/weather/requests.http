@@ -1,0 +1,6 @@
+### Get weather response
+# GET http://localhost:8081/weather
+
+
+#### Get weather for Nairobi
+GET http://localhost:8081/weather?city=Nairobi

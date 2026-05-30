@@ -38,21 +38,33 @@ This repository is dedicated to my journey of learning **Java programming fundam
 
 ## 🗂️ Project Structure (To Be Updated)
 ```
-src
-├── main
-│   ├── java
-│   │   └── com
-│   │       └── example
-│   │           └── myapp
-│   │               ├── controller
-│   │               ├── service
-│   │               ├── repository
-│   │               └── model
-│   └── resources
-│       ├── application.properties
-│       └── static
-└── templates
-    └── index.html
+taskreminder/
+├── src/
+│   ├── main/
+│   │   ├── java/              # All Java code
+│   │   │   └── com/
+│   │   │       └── example/
+│   │   │           └── taskreminder/
+│   │   │               ├── TaskReminderApplication.java  # Main class
+│   │   │               ├── config/      # Configuration classes
+│   │   │               ├── controller/  # REST controllers
+│   │   │               ├── model/       # Entities (JPA)
+│   │   │               ├── repository/  # JPA repositories
+│   │   │               ├── service/     # Business logic
+│   │   │               └── dto/         # Data Transfer Objects
+│   │   │
+│   │   └── resources/         # Non-Java resources
+│   │       ├── static/        # CSS/JS/images
+│   │       ├── templates/     # Thymeleaf/HTML
+│   │       ├── application.properties  # Config
+│   │       └── db/
+│   │           └── migration/ # Flyway migrations (V1__Create_table.sql)
+│   │
+│   └── test/                  # Test code (same structure as main/java)
+│
+├── target/                   # Generated files (auto-created by Maven)
+├── pom.xml                   # Maven config
+└── HELP.md
 ```
 ## 📚 Learning Resources
 - [Java Programming and Software Engineering Fundamentals](https://www.coursera.org/specializations/java-programming)
