@@ -11,12 +11,12 @@ This repository contains my Data Structures and Algorithms practice in Java.
 
 ## Topics Covered
 
-* Arrays & Strings
-* Linked Lists
-* Stacks & Queues
-* Trees & Binary Search Trees
-* Graphs
-* Sorting & Searching
+* ✅ Arrays & Strings
+* ✅ Linked Lists
+* ⬜ Stacks & Queues
+* ⬜ Trees & BST
+* ⬜ Graphs
+* ⬜ Sorting & Searching
 
 ## Progress
 
